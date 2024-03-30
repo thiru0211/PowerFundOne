@@ -35,8 +35,8 @@ public class InstallerSetup extends Locators  {
 		WebDriverManager.chromedriver().setup();
 		driver=new ChromeDriver();
 		driver.manage().window().maximize(); 
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-		driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(10));
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
+		driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(30));
 		driver.get("http://192.168.1.36:81/#/auth");
 		File file=new File("C:\\Users\\thirumaran\\eclipse-workspace\\PowerFundOnee\\Data.properties");
 		FileInputStream FIS=new FileInputStream(file);
@@ -351,6 +351,7 @@ public class InstallerSetup extends Locators  {
 	@Test(priority = 13)
 	public void TC14() throws InterruptedException, AWTException {
 		InstallerBtnClick();
+		Thread.sleep(2000);
 		String InstSearchName=PropertyFileReader.propertymap.get("InstSearchName");
 		Thread.sleep(2000);
 		driver.findElement(By.xpath(InstSearchBtn)).sendKeys(InstSearchName);

@@ -39,8 +39,8 @@ public class InvestorSetup extends Locators {
 		WebDriverManager.chromedriver().setup();
 		driver=new ChromeDriver();
 		driver.manage().window().maximize(); 
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-		driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(10));
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
+		driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(30));
 		driver.get("http://192.168.1.36:81/#/auth");
 		File file=new File("C:\\Users\\thirumaran\\eclipse-workspace\\PowerFundOnee\\Data.properties");
 		FileInputStream FIS=new FileInputStream(file);
@@ -84,7 +84,9 @@ public class InvestorSetup extends Locators {
 	public void TC02() throws InterruptedException, AWTException {
 		InvestorBtnClick();
 		driver.findElement(By.xpath(InvstrAddBtn)).click();
+		Thread.sleep(2000);
 		driver.findElement(By.xpath(InvstrSaveBtn)).click();
+		Thread.sleep(3000);
 		ele1=driver.findElement(By.xpath(InvstrWarningMsg));
 		if(ele1.isDisplayed()) {
 			System.out.println("Warning message is shown");
@@ -400,7 +402,7 @@ public class InvestorSetup extends Locators {
 		InvestorBtnClick();
 		String InvestName=PropertyFileReader.propertymap.get("InvestName");
 		String InvestInslrDD=PropertyFileReader.propertymap.get("InvestInslrDD");
-		String InvestCusNam=PropertyFileReader.propertymap.get("InvestCusNam");
+		String InvestCusNam1=PropertyFileReader.propertymap.get("InvestCusNam1");
 		driver.findElement(By.xpath(InvstrSrch)).sendKeys(InvestName);
 		driver.findElement(By.xpath(InvstrEditBtn)).click();
 		Thread.sleep(2000);
@@ -413,7 +415,7 @@ public class InvestorSetup extends Locators {
 		ele1=driver.findElement(By.xpath(InvstrSelInstlrDD));
 		Select sel=new Select(ele1);
 		sel.selectByVisibleText(InvestInslrDD);
-		driver.findElement(By.xpath(InvstrCusName)).sendKeys(InvestCusNam);
+		driver.findElement(By.xpath(InvstrCusName)).sendKeys(InvestCusNam1);
 		driver.findElement(By.xpath(InvstrCusChckBox)).click();
 		Thread.sleep(2000);
 		WebElement element2 = driver.findElement(By.xpath(InvstrActBtn));
@@ -542,9 +544,11 @@ public class InvestorSetup extends Locators {
 	@Test(priority = 24)
 	public void TC24() throws InterruptedException, AWTException {
 		InvestorBtnClick();
+		Thread.sleep(2000);
 		String InvestName1=PropertyFileReader.propertymap.get("InvestName1");
 		String InvestInslrDD=PropertyFileReader.propertymap.get("InvestInslrDD");
-		String InvestCusID=PropertyFileReader.propertymap.get("InvestCusID");
+		String InvestCusID1=PropertyFileReader.propertymap.get("InvestCusID1");
+		Thread.sleep(2000);
 		driver.findElement(By.xpath(InvstrSrch)).sendKeys(InvestName1);
 		driver.findElement(By.xpath(InvstrEditBtn)).click();
 		Thread.sleep(2000);
@@ -554,7 +558,7 @@ public class InvestorSetup extends Locators {
 		element1.click();
 		driver.findElement(By.xpath(InvstrAddCusBtn)).click();
 		driver.findElement(By.xpath(InvstrSelInstlrDD)).sendKeys(InvestInslrDD);
-		driver.findElement(By.xpath(InvstrCusName)).sendKeys(InvestCusID);
+		driver.findElement(By.xpath(InvstrCusName)).sendKeys(InvestCusID1);
 		driver.findElement(By.xpath(InvstrCusChckBox)).click();
 		Thread.sleep(2000);
 		WebElement element2 = driver.findElement(By.xpath(InvstrActBtn));

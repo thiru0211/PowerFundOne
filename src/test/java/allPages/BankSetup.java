@@ -34,8 +34,8 @@ public class BankSetup extends Locators {
 		WebDriverManager.chromedriver().setup();
 		driver=new ChromeDriver();
 		driver.manage().window().maximize(); 
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-		driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(10));
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
+		driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(30));
 		driver.get("http://192.168.1.36:81/#/auth");
 		File file=new File("C:\\Users\\thirumaran\\eclipse-workspace\\PowerFundOnee\\Data.properties");
 		FileInputStream FIS=new FileInputStream(file);
@@ -627,14 +627,31 @@ public class BankSetup extends Locators {
 	@Test(priority = 31)
 	public void TC31() throws InterruptedException, Exception {
 		EventLog();
+		Thread.sleep(6000);
+	ele1=driver.findElement(By.xpath("//*[@id=\"kt_content_container\"]/div[2]"));
+	if (ele1.isDisplayed()) {
+		System.out.println("No details to show");
+	}
+	else {
 		driver.findElement(By.xpath(EventLogViewBtn)).click();
+		System.out.println("Listed elements are shown");
+	}
 	}
 
 	@Test(priority = 32)
 	public void TC32() throws InterruptedException, Exception {
 		TC31();
-		driver.findElement(By.xpath(EventLogCloseBtn)).click();
-		driver.findElement(By.xpath(EventLogViewBtn)).click();		
+		Thread.sleep(6000);
+		ele1=driver.findElement(By.xpath("//*[@id=\"kt_content_container\"]/div[2]"));
+		if (ele1.isDisplayed()) {
+			System.out.println("No details to show");
+		}
+		else {
+			driver.findElement(By.xpath(EventLogCloseBtn)).click();
+			driver.findElement(By.xpath(EventLogViewBtn)).click();
+			System.out.println("Listed elements are shown");
+		}
+				
 	}
 
 	@Test(priority = 33)

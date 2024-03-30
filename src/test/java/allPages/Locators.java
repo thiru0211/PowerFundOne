@@ -215,7 +215,8 @@ public String InvstrStatusDD="status";
 public String InvstrAddBtn="//*[@id=\"kt_content_container\"]/div/div[1]/div[2]/a/div/button";
 public String InvstrExcelBtn="//*[@id=\"kt_content_container\"]/div/div[1]/div[2]/div/div/button";	
 public String InvstrEditBtn="//*[@id=\"kt_table_users\"]/tbody/tr[1]/td[8]/div/div/a/span";
-public String InvstrWarningMsg="//*[@id=\"kt_body\"]/div[3]/div/div[2]/div/div[2]/div/div";
+public String InvstrWarningMsg="//*[@id=\"kt_body\"]/div[2]/div/div[2]/div/div[2]/div/div/div[2]/button";
+									//*[@id="kt_body"]/div[2]/div/div[2]/div/div[2]/div/div/div[2]/button
 public String InvstrName="Investor";//name
 public String InvstrEnblBtn="//*[@id=\"kt_content_container\"]/form/div/div[2]/div[2]/div[2]/label/div/input";
 public String InvstrDsblBtn="//*[@id=\"kt_content_container\"]/form/div/div[2]/div[2]/div[2]/label/div/span/input";
