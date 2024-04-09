@@ -16,6 +16,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -33,11 +34,12 @@ public class InstallerSetup extends Locators  {
 	@BeforeMethod
 	public void setUp() throws IOException{
 		WebDriverManager.chromedriver().setup();
+		ChromeOptions option=new ChromeOptions();
 		driver=new ChromeDriver();
 		driver.manage().window().maximize(); 
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
 		driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(30));
-		driver.get("http://192.168.1.36:81/#/auth");
+		driver.get("http://192.168.1.36:90/#/auth");
 		File file=new File("C:\\Users\\thirumaran\\eclipse-workspace\\PowerFundOnee\\Data.properties");
 		FileInputStream FIS=new FileInputStream(file);
 		Properties prop=new Properties();
@@ -49,7 +51,7 @@ public class InstallerSetup extends Locators  {
 		Thread.sleep(3000);
 		driver.quit();
 	}
-	@Test(priority = 1)
+	@Test(priority = 1,retryAnalyzer = ReRunFailedTestCase.class)
 	public void InstallerBtnClick() throws InterruptedException {
 		PropertyFileReader.propertyRead();
 		String EmailId=PropertyFileReader.propertymap.get("EmailId");
@@ -65,7 +67,7 @@ public class InstallerSetup extends Locators  {
 		sel.selectByVisibleText("All");
 	}
 
-	@Test(priority = 3)
+	@Test(priority = 3,retryAnalyzer = ReRunFailedTestCase.class)
 	public void EnterAllDetails() throws InterruptedException, AWTException {
 		InstallerBtnClick();
 		String InstlrName=PropertyFileReader.propertymap.get("InstlrName");
@@ -106,11 +108,13 @@ public class InstallerSetup extends Locators  {
 	}
 
 
-	@Test(priority = 2)
+	@Test(priority = 2,retryAnalyzer = ReRunFailedTestCase.class)
 	public void TC01() throws InterruptedException, AWTException {
 		InstallerBtnClick();
+		Thread.sleep(3000);
 		ele1=driver.findElement(By.xpath(InstAddBtn));
-		ele1.click();	
+		ele1.click();
+		Thread.sleep(3000);
 		driver.findElement(By.xpath(InstSaveBtn)).click();
 		ele2=driver.findElement(By.xpath(InstAlrtMsg));
 		if(ele2.isDisplayed()) {
@@ -121,19 +125,19 @@ public class InstallerSetup extends Locators  {
 		}
 	}
 
-	@Test(priority = 4)
+	@Test(priority = 4,retryAnalyzer = ReRunFailedTestCase.class)
 	public void TC02() throws InterruptedException, AWTException {
 		EnterAllDetails();
 		driver.findElement(By.id(InstClrBtn)).click();
 	}
 
-	@Test(priority = 5)
+	@Test(priority = 5,retryAnalyzer = ReRunFailedTestCase.class)
 	public void TC03() throws InterruptedException, AWTException {
 		EnterAllDetails();
 		driver.findElement(By.xpath(InstSaveBtn)).click();
 	}
 
-	@Test(priority = 6)
+	@Test(priority = 6,retryAnalyzer = ReRunFailedTestCase.class)
 	public void TC04() throws InterruptedException, AWTException {
 		InstallerBtnClick();
 		String InstlrName=PropertyFileReader.propertymap.get("InstlrName");
@@ -173,13 +177,13 @@ public class InstallerSetup extends Locators  {
 		driver.findElement(By.xpath(InstSaveBtn)).click();
 	}
 
-	@Test(priority = 7)
+	@Test(priority = 7,retryAnalyzer = ReRunFailedTestCase.class)
 	public void TC06() throws InterruptedException, AWTException {
 		InstallerBtnClick();
 		driver.findElement(By.xpath(InstAddBtn)).click();
 		driver.findElement(By.xpath(InstBackBtn)).click();
 	}
-	@Test(priority = 8)
+	@Test(priority = 8,retryAnalyzer = ReRunFailedTestCase.class)
 	public void TC07() throws InterruptedException, AWTException {
 		InstallerBtnClick();
 		String InstSearchName=PropertyFileReader.propertymap.get("InstSearchName");
@@ -195,9 +199,10 @@ public class InstallerSetup extends Locators  {
 		driver.findElement(By.xpath(InstBackBtn)).click();
 	}
 
-	@Test(priority = 9)
+	@Test(priority = 9,retryAnalyzer = ReRunFailedTestCase.class)
 	public void TC08() throws InterruptedException, AWTException {
 		InstallerBtnClick();
+		Thread.sleep(2000);
 		String InstSearchName=PropertyFileReader.propertymap.get("InstSearchName");
 		String ModifiedInstName=PropertyFileReader.propertymap.get("ModifiedInstName");
 		String CntryDD=PropertyFileReader.propertymap.get("CntryDD");
@@ -212,6 +217,7 @@ public class InstallerSetup extends Locators  {
 		String InstlrInvCpy=PropertyFileReader.propertymap.get("InstlrInvCpy");
 		String CRMName=PropertyFileReader.propertymap.get("CRMName");
 		String CRMUrl=PropertyFileReader.propertymap.get("CRMUrl");
+		Thread.sleep(2000);
 		driver.findElement(By.xpath(InstSearchBtn)).sendKeys(InstSearchName);
 		driver.findElement(By.xpath(InstEditBtn)).click();
 		Thread.sleep(2000);
@@ -244,9 +250,10 @@ public class InstallerSetup extends Locators  {
 		driver.findElement(By.id(InstResetBtn)).click();
 	}
 
-	@Test(priority = 10)
+	@Test(priority = 10,retryAnalyzer = ReRunFailedTestCase.class)
 	public void TC10() throws InterruptedException, AWTException {
 		InstallerBtnClick();
+		Thread.sleep(2000);
 		String InstSearchName=PropertyFileReader.propertymap.get("InstSearchName");
 		String ModifiedInstName=PropertyFileReader.propertymap.get("ModifiedInstName");
 		String CntryDD=PropertyFileReader.propertymap.get("CntryDD");
@@ -261,6 +268,7 @@ public class InstallerSetup extends Locators  {
 		String InstlrInvCpy=PropertyFileReader.propertymap.get("InstlrInvCpy");
 		String CRMName=PropertyFileReader.propertymap.get("CRMName");
 		String CRMUrl=PropertyFileReader.propertymap.get("CRMUrl");
+		Thread.sleep(2000);
 		driver.findElement(By.xpath(InstSearchBtn)).sendKeys(InstSearchName);
 		driver.findElement(By.xpath(InstEditBtn)).click();
 		Thread.sleep(2000);
@@ -293,7 +301,7 @@ public class InstallerSetup extends Locators  {
 		driver.findElement(By.xpath(InstUpdateBtn)).click();
 	}
 
-	@Test(priority = 11)
+	@Test(priority = 11,retryAnalyzer = ReRunFailedTestCase.class)
 	public void TC09() throws InterruptedException, AWTException {
 		InstallerBtnClick();
 		String InstSearchName=PropertyFileReader.propertymap.get("InstSearchName");
@@ -342,13 +350,28 @@ public class InstallerSetup extends Locators  {
 		driver.findElement(By.xpath(InstUpdateBtn)).click();
 	}
 
-	@Test(priority = 12)
+	@Test(priority = 12,retryAnalyzer = ReRunFailedTestCase.class)
 	public void TC11() throws InterruptedException, AWTException {
-		TC10();
+		InstallerBtnClick();
+		String InstSearchName=PropertyFileReader.propertymap.get("InstSearchName");
+		driver.findElement(By.xpath(InstSearchBtn)).sendKeys(InstSearchName);
+		driver.findElement(By.xpath(InstEditBtn)).click();
+		Thread.sleep(2000);
+		WebElement element = driver.findElement(By.xpath(InstActionsBtn));
+		Actions act=new Actions(driver);
+		act.click().build().perform();
+		element.click();
+		Thread.sleep(2000);
+		driver.findElement(By.xpath(EditInstaller)).click();
+		ele4=driver.findElement(By.xpath(InstStatusDSbl));
+		ele4.click();
+		driver.findElement(By.xpath(InstUpdateBtn)).click();
 	}
 
+	//TC-12------------> there is no full view button
+	//TC-13------------> there is no simple view button
 
-	@Test(priority = 13)
+	@Test(priority = 13,retryAnalyzer = ReRunFailedTestCase.class)
 	public void TC14() throws InterruptedException, AWTException {
 		InstallerBtnClick();
 		Thread.sleep(2000);
@@ -366,7 +389,7 @@ public class InstallerSetup extends Locators  {
 		driver.findElement(By.xpath(InvstClseBtn)).click();
 	}
 
-	@Test(priority = 14)
+	@Test(priority = 14,retryAnalyzer = ReRunFailedTestCase.class)
 	public void TC15() throws InterruptedException, AWTException {
 		InstallerBtnClick();
 		String InstSearchName=PropertyFileReader.propertymap.get("InstSearchName");
@@ -407,7 +430,7 @@ public class InstallerSetup extends Locators  {
 		driver.findElement(By.xpath(InvstClrBtn)).click();
 	}
 
-	@Test(priority = 15)
+	@Test(priority = 15,retryAnalyzer = ReRunFailedTestCase.class)
 	public void TC16() throws InterruptedException, AWTException {
 		InstallerBtnClick();
 		String InstSearchName=PropertyFileReader.propertymap.get("InstSearchName");
@@ -448,7 +471,7 @@ public class InstallerSetup extends Locators  {
 		driver.findElement(By.xpath(InvstSaveBtn)).click();
 	}
 
-	@Test(priority = 16)
+	@Test(priority = 16,retryAnalyzer = ReRunFailedTestCase.class)
 	public void TC17() throws InterruptedException, AWTException {
 		InstallerBtnClick();
 		Thread.sleep(2000);
@@ -475,12 +498,12 @@ public class InstallerSetup extends Locators  {
 		robot.keyPress(KeyEvent.VK_ENTER);
 		robot.keyRelease(KeyEvent.VK_ENTER);
 		Thread.sleep(2000);
-		WebElement element2 = driver.findElement(By.xpath("//*[@id=\"kt_body\"]/div[2]/div/div[2]/div/div[2]/div[2]/form/div/div[1]/div[6]/div/div/div/h6"));
-		String text = element2.getText();
-		System.out.println(text);		
+//		WebElement element2 = driver.findElement(By.xpath("//*[@id=\"kt_body\"]/div[2]/div/div[2]/div/div[2]/div[2]/form/div/div[1]/div[6]/div/div/div/h6"));
+//		String text = element2.getText();
+//		System.out.println(text);		
 	}
 
-	@Test(priority = 17)
+	@Test(priority = 17,retryAnalyzer = ReRunFailedTestCase.class)
 	public void TC18() throws InterruptedException, AWTException {
 		InstallerBtnClick();
 		Thread.sleep(2000);
@@ -497,7 +520,7 @@ public class InstallerSetup extends Locators  {
 		driver.findElement(By.xpath(InvstBackBtn)).click();
 	}
 
-	@Test(priority = 18)
+	@Test(priority = 18,retryAnalyzer = ReRunFailedTestCase.class)
 	public void TC19() throws InterruptedException, AWTException {
 		InstallerBtnClick();
 		Thread.sleep(2000);
@@ -510,7 +533,7 @@ public class InstallerSetup extends Locators  {
 		sel.selectByVisibleText(StatusEnbl);
 	}
 
-	@Test(priority = 19)
+	@Test(priority = 19,retryAnalyzer = ReRunFailedTestCase.class)
 	public void TC20() throws InterruptedException, AWTException {
 		InstallerBtnClick();
 		Thread.sleep(2000);
@@ -520,7 +543,7 @@ public class InstallerSetup extends Locators  {
 		sel.selectByVisibleText(StatusDSbl);
 	}
 
-	@Test(priority = 20)
+	@Test(priority = 20,retryAnalyzer = ReRunFailedTestCase.class)
 	public void TC21() throws InterruptedException, AWTException {
 		InstallerBtnClick();
 		Thread.sleep(2000);
@@ -534,7 +557,7 @@ public class InstallerSetup extends Locators  {
 		driver.findElement(By.xpath(InvstCloseBtn)).click();
 	}
 
-	@Test(priority = 21)
+	@Test(priority = 21,retryAnalyzer = ReRunFailedTestCase.class)
 	public void TC22() throws InterruptedException, AWTException {
 		InstallerBtnClick();
 		Thread.sleep(2000);
@@ -548,7 +571,7 @@ public class InstallerSetup extends Locators  {
 		driver.findElement(By.xpath(InvstClrBtn)).click();
 	}
 
-	@Test(priority = 22)
+	@Test(priority = 22,retryAnalyzer = ReRunFailedTestCase.class)
 	public void TC23() throws InterruptedException, AWTException {
 		InstallerBtnClick();
 		Thread.sleep(2000);
@@ -574,7 +597,7 @@ public class InstallerSetup extends Locators  {
 		driver.findElement(By.xpath(InvstSaveBtn)).click();
 	}
 
-	@Test(priority = 23)
+	@Test(priority = 23,retryAnalyzer = ReRunFailedTestCase.class)
 	public void TC24() throws InterruptedException, AWTException {
 		InstallerBtnClick();
 		Thread.sleep(2000);
@@ -598,16 +621,15 @@ public class InstallerSetup extends Locators  {
 		robot.keyPress(KeyEvent.VK_ENTER);
 		robot.keyRelease(KeyEvent.VK_ENTER);
 		Thread.sleep(2000);
-		WebElement element2 = driver.findElement(By.xpath("//*[@id=\"kt_body\"]/div[2]/div/div[2]/div/div[2]/div[2]/form/div/div[1]/div[6]/div/div/div/h6"));
-		String text = element2.getText();
-		System.out.println(text);		
+//		WebElement element2 = driver.findElement(By.xpath("//*[@id=\"kt_body\"]/div[2]/div/div[2]/div/div[2]/div[2]/form/div/div[1]/div[6]/div/div/div/h6"));
+//		String text = element2.getText();
+//		System.out.println(text);		
 	}
 
-	@Test(priority = 24)
+	@Test(priority = 24,retryAnalyzer = ReRunFailedTestCase.class)
 	public void TC25() throws InterruptedException, AWTException {
 		InstallerBtnClick();
 		Thread.sleep(2000);
-
 		String InstSearchName=PropertyFileReader.propertymap.get("InstSearchName");
 		ele1=driver.findElement(By.xpath(InstSearchBtn));
 		ele1.sendKeys(InstSearchName);
