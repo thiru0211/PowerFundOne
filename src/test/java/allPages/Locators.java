@@ -32,8 +32,8 @@ public String AdminBtn="//*[@id=\"#kt_aside_menu\"]/div[7]/span/span[2]";
 public String ViewUserBtn="//*[@id=\"#kt_aside_menu\"]/div[7]/div/div[1]/a/span[2]";
 public String ViewUserStsDD="//*[@id=\"kt_content_container\"]/div/div[1]/div[1]/span[2]/div/select";
 public String ViewUserAct="//*[@id=\"kt_content_container\"]/form/div/div[1]/div[2]/a";
-public String VUAccRgtsAct="//*[@id=\"kt_content_container\"]/div[1]/div[1]/div/div/div[4]/div/div/button";
-public String VUAccRgtsActBckBtn="//*[@id=\"kt_content_container\"]/div[1]/div[1]/div/div/div[4]/div/div/div/a/div/div/div";
+public String VUAccRgtsAct="//*[@id=\"kt_content_container\"]/div[1]/div[1]/div/div[3]/div/div/button";
+public String VUAccRgtsActBckBtn="//*[@id=\"kt_content_container\"]/div[1]/div[1]/div/div[3]/div/div/div/a/div/div/div";
 public String ViewUserBckBtn="//*[@id=\"kt_content_container\"]/form/div/div[1]/div[2]/div/a/div/div/div";
 public String VUBckBtn="//*[@id=\"kt_content_container\"]/div[1]/div[1]/div/div/div[4]/div/div/div/a/div/div/div";
 public String ViewUserSrchBtn="//input[@class='form-control form-control-solid w-250px ps-14 fs-6']";
@@ -41,14 +41,14 @@ public String ViewUserSrchEditBtn="//*[@id=\"kt_table_users\"]/tbody/tr/td[8]/di
 public String VUEmailEditBtn="//*[@id=\"kt_content_container\"]/div[2]/div/div[2]/div[3]/img";
 public String VUPassEditBtn="//*[@id=\"kt_content_container\"]/div[2]/div/div[3]/div[3]/img";
 public String VUNewPassBtn="(//input[@class='form-control form-control-lg form-control-solid' and @type='password' and @style='background-color: rgb(238, 243, 247);'])[1]";
-public String VUCnfrmPassBtn="(//input[@class='form-control form-control-lg form-control-solid' and @type='password' and @style='background-color: rgb(238, 243, 247);'])[3]";
+public String VUCnfrmPassBtn="(//input[@class='form-control form-control-lg form-control-solid' and @type='password' and @style='background-color: rgb(238, 243, 247);'])[2]";
 public String VUNewEmailID="//input[@class='form-control form-control-lg form-control-solid' and @type='email']";
 public String VUNewEmailVerCode="//div[@class='btn btn-success' and text()='Get Verification Code']";
 public String VUNewEmailEtrOTP="//input[@class='form-control form-control-lg form-control-solid' and @type='text']";
 public String VUNewEmailUpdBtn="//button[text()='Update']";
 public String VUNewPassUpdBtn="//button[text()='Reset']";
-public String VUNewEmailClsBtn="//*[@id=\"kt_body\"]/div[2]/div/div[2]/div/div[2]/button/span/span";
-public String VUNewPassClsBtn="//*[@id=\"kt_body\"]/div[3]/div/div[2]/div/div[2]/button/span/span";
+public String VUNewEmailClsBtn="//*[@id=\"kt_body\"]/div[2]/div/div[2]/div/div[2]/button";
+public String VUNewPassClsBtn="//*[@id=\"kt_body\"]/div[2]/div/div[2]/div/div[2]/button";
 public String VUStsClsBtn="//*[@id=\"kt_body\"]/div[2]/div/div[2]/div/div[2]/button/span/span";
 public String VUStusEditBtn="//*[@id=\"kt_content_container\"]/div[2]/div/div[4]/div[3]/img";
 public String VUStusEditRdoYes="//input[@name='yes']";
@@ -57,16 +57,16 @@ public String VU2FAEditBtn="//*[@id=\"kt_content_container\"]/div[3]/div/div[3]/
 public String VU2FAYesBtn="(//input[@type='radio' and @class='form-check-input cursor-pointer' and @name='radioOption' and @value='Y'])[1]";
 public String VU2FAUpdBtn="//button[text()='Update']";
 public String VU2FAClsBtn="//*[@id=\"kt_body\"]/div[2]/div/div[2]/div/div[2]/button/span/span";
-public String VUAccRgtsBtn="//*[@id=\"kt_content_container\"]/div[1]/div[2]/ul/li[2]/a/span";
+public String VUAccRgtsBtn="//*[@id=\"kt_content_container\"]/div[1]/div[2]/ul/li[3]/a/span";
 public String VUAccRgtsRepCB="REP";//name
-public String VUAccRgtsActSubBtn="//*[@id=\"kt_content_container\"]/div[1]/div[1]/div/div/div[4]/div/div/div/div[2]/div/div";
-public String VUTimeShtAccBtn="//*[@id=\"kt_content_container\"]/div[1]/div[2]/ul/li[4]/a";
+public String VUAccRgtsActSubBtn="//*[@id=\"kt_content_container\"]/div[1]/div[1]/div/div[3]/div/div/div/div[2]/div/div";
+public String VUTimeShtAccBtn="//*[@id=\"kt_content_container\"]/div[1]/div[2]/ul/li[5]/a";
 public String VUTimeShtAccEnblBtn="yes";//name
 public String VUTimeShtAccDsblBtn="no";//name
 public String VUInstMap="//*[@id=\"kt_content_container\"]/div[1]/div[2]/ul/li[2]/a/span";
 public String VUInstMapSpcInst="no";
-public String VUSpcInstTestCckbx="//*[@id=\"kt_content_container\"]/div[2]/div[2]/div[2]/div[1]/div[37]/div[1]/div/input";
-public String VUTestCckbxActEdtUsr="//*[@id=\"kt_content_container\"]/div[1]/div[1]/div/div/div[4]/div/div/div/div[1]/div/a";
+public String VUSpcInstTestCckbx="//*[@id=\"kt_content_container\"]/div[2]/div[2]/div[2]/div[2]/div/div[1]/div/input";
+public String VUTestCckbxActEdtUsr="//*[@id=\"kt_content_container\"]/div[1]/div[1]/div/div[3]/div/div/div/div[1]/div/a";
 
 
 
