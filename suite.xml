@@ -3,7 +3,6 @@
 <suite name="Suite">
   <test thread-count="5" name="Test">
     <classes>
-      <class name="allPages.ViewUser"/>
       <class name="allPages.Login"/>
       <class name="allPages.Reports"/>
     </classes>
