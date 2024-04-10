@@ -3,14 +3,15 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="allPages.ViewUser">
+      <class name="allPages.Login">
         <methods>
-          <include name="TC34"/>
           <include name="launch"/>
-          <include name="setUp"/>
+          <include name="Login_T11"/>
           <include name="tearDown"/>
+          <include name="teardown"/>
+          <include name="setUp"/>
         </methods>
-      </class> <!-- allPages.ViewUser -->
+      </class> <!-- allPages.Login -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

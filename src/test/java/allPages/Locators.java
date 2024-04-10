@@ -19,7 +19,7 @@ public String DisabledEmailID="disabledmail@yopmail.com";
 public String Disabledpass="123123123123";
 public String EmailReq="//*[@id=\"kt_login_signin_form\"]/div[3]/div[1]/div/span";
 public String EmailLockMsg="//*[@id=\"kt_login_signin_form\"]/div[3]/div/span";
-public String PassReq="//*[@id=\"kt_login_signin_form\"]/div[4]/div[2]/div/span";
+public String PassReq="//*[@id=\"kt_login_signin_form\"]/div[4]/div[3]/div/span";
 public String ForgetPassword="//div[@class='link-primary fs-6 fw-bolder']";
 public String TwoFAEmail="thirumaran@yopmail.com";
 public String TwoFAPass="123123123123";

@@ -53,11 +53,11 @@ public class Login extends Locators{
 		prop.load(FIS);	
 	}
 	
-//	@AfterMethod
-//	public void tearDown() throws IOException, InterruptedException{
-//		Thread.sleep(3000);
-//		driver.quit();
-//	}
+	@AfterMethod
+	public void tearDown() throws IOException, InterruptedException{
+		Thread.sleep(3000);
+		driver.quit();
+	}
 	
 	@Test(priority = 1,retryAnalyzer = ReRunFailedTestCase.class)
 	public void Login_TC1(){
@@ -135,9 +135,8 @@ public class Login extends Locators{
 	@Test(priority = 7,retryAnalyzer = ReRunFailedTestCase.class)
 	public void Login_TC7() throws InterruptedException {
 		PropertyFileReader.propertyRead();
-		String DsblMailId=PropertyFileReader.propertymap.get("DsblMailId");
 		String InvalidPswd=PropertyFileReader.propertymap.get("Invpassword");
-		driver.findElement(By.name(Email)).sendKeys(DsblMailId);
+		driver.findElement(By.name(Email)).sendKeys("thirumaran1995@outlook.com");
 		driver.findElement(By.name(Password)).sendKeys(InvalidPswd);
 		ele1=driver.findElement(By.id(LoginBtn));
 		for(int i=0;i<6;i++) {
