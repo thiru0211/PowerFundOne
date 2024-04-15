@@ -5,6 +5,7 @@
     <classes>
       <class name="allPages.Login"/>
       <class name="allPages.Reports"/>
+      <class name="allPages.CustomerIssues"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->
